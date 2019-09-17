@@ -1,0 +1,29 @@
+package com.resset.miku.app;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Launcher extends Application {
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        /* TODO
+            add custom window decoration
+            priority relatively small
+         */
+        Parent root = FXMLLoader.load(getClass().getResource("views/MainWindowView.fxml"));
+
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("stylesheet.css").toExternalForm());
+
+        stage.setScene(scene);
+        stage.show();
+    }
+}

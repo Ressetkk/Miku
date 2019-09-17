@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="250.0" styleClass="albumart" stylesheets="@../stylesheet.css" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="albumArt" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
+      <Rectangle fx:id="textBackground" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="70.0" layoutY="180.0" stroke="BLACK" strokeType="INSIDE" width="250.0" />
+      <Label id="albumLabel" fx:id="albumLabel" layoutX="10.0" layoutY="190.0" text="AlbumName" />
+      <Label id="artistLabel" fx:id="artistLabel" layoutX="10.0" layoutY="216.0" text="Label" />
+      <ProgressBar fx:id="progressBar" layoutY="240.0" prefHeight="10.0" prefWidth="250.0" progress="0.3" visible="false" />
+   </children>
+</fx:root>

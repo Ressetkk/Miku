@@ -1,0 +1,4 @@
+rootProject.name = 'Miku'
+include 'app'
+include 'tidalapi'
+

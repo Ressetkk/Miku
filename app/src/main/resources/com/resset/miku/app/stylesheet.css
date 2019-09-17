@@ -1,0 +1,197 @@
+@font-face {
+    font-family: Roboto-Light;
+    src: url('fonts/Roboto-Light.ttf');
+}
+
+@font-face {
+    font-family: Roboto-Regular;
+    src: url('fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: Roboto-Bold;
+    src: url('fonts/Roboto-Bold.ttf');
+}
+
+/* TODO
+    better styling for future themes support
+    and probably better color palette than this one...
+ */
+.root {
+    primarycolor: #272727;
+    secondarycolor: #2E2E2E;
+    navbar: #222222;
+    /*primarycolor: #082656;*/
+    /*secondarycolor: #0c1b35;*/
+    /*navbar: #0c1123;*/
+    -fx-background-color: primarycolor;
+}
+
+.root .text{
+    -fx-font-smoothing-type: gray;
+    -fx-text-fill: white;
+}
+.navbar {
+    -fx-background-color: navbar;
+}
+
+.navbar Button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 100%;
+}
+
+.navbar Button:hover {
+    -fx-background-color: derive(navbar, 25%);
+}
+
+.contentNavigation {
+    -fx-background-color: secondarycolor;
+}
+
+.contentNavigation Label {
+    -fx-font-family: Roboto-Bold;
+    -fx-text-fill: white;
+    -fx-font-size: 24;
+}
+
+.contentNavigation Button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 5;
+    -fx-text-fill: white;
+    -fx-font-size: 16;
+    -fx-padding: 5 5 5 5;
+}
+
+.contentNavigation Button:hover {
+    -fx-background-color: primarycolor;
+}
+
+.searchBar > TextField, .searchBar > Button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-width: 0 0 1.5 0;
+    -fx-border-color: #fff;
+    -fx-text-fill: white;
+}
+
+.searchBar TextField:focused {
+    -fx-border-color: -fx-focus-color;
+}
+
+.searchBar Button > Glyph {
+    -fx-text-fill: white;
+}
+ScrollPane {
+    -fx-fit-to-height: true;
+    -fx-fit-to-width: true;
+    -fx-background-color: transparent;
+}
+ScrollPane > .viewport {
+    -fx-background-color: transparent;
+}
+
+ScrollBar .track {
+    -fx-background-color: primarycolor;
+}
+ScrollBar .thumb:pressed {
+    -fx-background-color: derive(primarycolor, 45%);
+}
+ScrollPane > .corner {
+    -fx-background-color: primarycolor;
+}
+
+ScrollBar .thumb {
+    -fx-background-color: secondarycolor;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-border-insets: 0;
+    -fx-background-insets: 0;
+    -fx-border-color: transparent;
+}
+
+ScrollBar > .increment-button,
+ScrollBar > .decrement-button {
+    -fx-background-color: secondarycolor;
+    -fx-border-style: none;
+    -fx-background-radius: 0;
+    -fx-border-width: 0;
+    -fx-background-insets: 0;
+    -fx-border-insets: 1;
+    -fx-text-fill: transparent;
+}
+ScrollBar > .increment-button > .increment-arrow, ScrollBar > .decrement-button > .decrement-arrow {
+    -fx-background-color: navbar;
+    -fx-effect: none;
+}
+
+.albumart {
+    -fx-background-color: #3A3A3A;
+    /*-fx-background-insets: 250;*/
+    -fx-effect: dropshadow(gaussian, #000, 20, 0, 0, 0);
+}
+
+.albumart Rectangle {
+    -fx-background-radius: 0px;
+    -fx-arc-width: 0;
+    -fx-arc-height: 0;
+    -fx-stroke: transparent;
+    -fx-fill: #212121;
+    -fx-opacity: 0.7;
+    -fx-blend-mode: multiply;
+}
+
+.albumart #albumLabel {
+    -fx-font-weight: lighter;
+    -fx-font-size: 20px;
+    -fx-text-fill: #FFF;
+}
+
+.albumart #artistLabel {
+    -fx-font-weight: lighter;
+    -fx-font-size: 16px;
+    -fx-text-fill: #FFF;
+}
+
+.albumart ProgressBar {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+.albumart .progress-bar > .track {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.albumart .progress-bar > .bar {
+    -fx-background-radius: 0 1 1 0;
+    -fx-background-color: #1fc7ff;
+    -fx-background-insets: 2 0 0 0;
+ }
+
+ /*CSS for settings views*/
+.settings {
+
+}
+
+.settings .saveButton {
+    -fx-background-color: #426FC5;
+    -fx-border-color: transparent;
+}
+
+.settings .saveButton:hover {
+    -fx-background-color: #678ac5;
+}
+
+.settings Button {
+    -fx-background-color: grey;
+    -fx-background-radius: 5;
+    -fx-text-fill: white;
+    -fx-font-family: Roboto-Bold;
+}
+
+.settings Button:hover {
+    -fx-background-color: #222;
+    -fx-border-color: grey;
+    -fx-border-radius: 5;
+}

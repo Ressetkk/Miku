@@ -1,0 +1,3 @@
+[submodule "tidalapi"]
+	path = tidalapi
+	url = ./tidalapi
