@@ -28,7 +28,7 @@
                         <FontIcon iconLiteral="fas-sliders-h" iconSize="20" />
                      </graphic>
                   </Button>
-                  <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+                  <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" onMouseClicked="#sessionsOnClick" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />

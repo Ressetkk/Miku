@@ -1,5 +1,6 @@
 package com.resset.miku.app.views;
 
+import com.resset.miku.app.api.Session;
 import com.resset.miku.app.api.User;
 import com.resset.miku.app.views.ViewUtils;
 import javafx.fxml.FXML;
@@ -24,8 +25,8 @@ public class SettingsController {
 
     @FXML
     private void loadGeneralMenu() {
-        ServiceLoader<User> loader = ServiceLoader.load(User.class);
-        loader.forEach(user -> System.out.printf("Instance: %s", user.getInstance()));
+        ServiceLoader<Session> loader = ServiceLoader.load(Session.class);
+        loader.forEach(session -> System.out.printf("Session: %s\n", session.isLoggedIn()));
 //        ViewUtils.setView(content, getClass().getResource("GeneralSettingsView.fxml"));
     }
 

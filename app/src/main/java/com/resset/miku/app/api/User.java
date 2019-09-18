@@ -1,7 +1,5 @@
 package com.resset.miku.app.api;
 
-import com.resset.miku.app.api.session.Session;
-
 public interface User {
     User getInstance();
     String getImageURL();

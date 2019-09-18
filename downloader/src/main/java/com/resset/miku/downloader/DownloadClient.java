@@ -1,4 +1,4 @@
-package com.resset.miku.app.downloader;
+package com.resset.miku.downloader;
 
 import java.util.ArrayList;
 import java.util.List;

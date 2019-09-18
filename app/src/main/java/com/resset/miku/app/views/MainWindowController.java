@@ -1,6 +1,5 @@
 package com.resset.miku.app.views;
 
-import com.resset.miku.app.downloader.DownloadClient;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
@@ -13,7 +12,6 @@ public class MainWindowController {
     @FXML
     private AnchorPane content;
 
-    private DownloadClient downloadClient;
     public MainWindowController() {
 
     }
@@ -37,5 +35,10 @@ public class MainWindowController {
     @FXML
     private void preferencesOnClick() {
         ViewUtils.setView(content, getClass().getResource("SettingsView.fxml"));
+    }
+
+    @FXML
+    private void sessionsOnClick() {
+        ViewUtils.setView(content, getClass().getResource("UserPageVIew.fxml"));
     }
 }
