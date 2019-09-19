@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -21,9 +23,11 @@ public class UserPageController {
     private BorderPane content;
 
     public void initialize() {
+        ToggleGroup group = new ToggleGroup();
         ServiceLoader<Session> sessionLoader = ServiceLoader.load(Session.class);
         sessionLoader.forEach(session -> {
-            Button sessionButton = new Button(session.getProviderName());
+            ToggleButton sessionButton = new ToggleButton(session.getProviderName());
+            group.getToggles().add(sessionButton);
             sessionButton.setOnMouseClicked(mouseEvent -> {
                 // TODO write logic for setting specific view
                 try {
