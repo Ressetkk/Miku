@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
 
-<?import org.kordamp.ikonli.javafx.FontIcon?>
-<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.resset.miku.app.views.UserPageController">
-   <children>
-      <VBox fx:id="navbar" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" styleClass="contentNavigation" HBox.hgrow="ALWAYS">
+<BorderPane fx:id="content" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.resset.miku.app.views.UserPageController">
+   <left>
+      <VBox fx:id="navbar" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" styleClass="contentNavigation" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="title" prefWidth="211.0" text="Sessions">
                <VBox.margin>
@@ -23,6 +20,5 @@
             </Label>
          </children>
       </VBox>
-      <AnchorPane fx:id="content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
-   </children>
-</HBox>
+   </left>
+</BorderPane>

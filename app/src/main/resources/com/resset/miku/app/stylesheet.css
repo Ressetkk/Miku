@@ -35,15 +35,17 @@
     -fx-background-color: navbar;
 }
 
-.navbar Button {
+.navbar ToggleButton {
     -fx-background-color: transparent;
     -fx-background-radius: 100%;
 }
 
-.navbar Button:hover {
+.navbar ToggleButton:hover {
     -fx-background-color: derive(navbar, 25%);
 }
-
+.navbar ToggleButton:selected {
+    -fx-background-color: derive(navbar, 25%);
+}
 .contentNavigation {
     -fx-background-color: secondarycolor;
 }
@@ -54,7 +56,7 @@
     -fx-font-size: 24;
 }
 
-.contentNavigation Button {
+.contentNavigation ToggleButton {
     -fx-background-color: transparent;
     -fx-background-radius: 5;
     -fx-text-fill: white;
@@ -62,7 +64,7 @@
     -fx-padding: 5 5 5 5;
 }
 
-.contentNavigation Button:hover {
+.contentNavigation ToggleButton:hover {
     -fx-background-color: primarycolor;
 }
 

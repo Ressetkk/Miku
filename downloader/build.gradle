@@ -1,0 +1,7 @@
+group 'com.resset.miku'
+version '1.0-SNAPSHOT'
+
+dependencies {
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+    implementation project(':app')
+}

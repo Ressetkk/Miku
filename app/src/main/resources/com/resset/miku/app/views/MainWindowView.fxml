@@ -1,38 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.shape.Circle?>
-<?import org.kordamp.ikonli.javafx.FontIcon ?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" stylesheets="@../stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.resset.miku.app.views.MainWindowController">
-   <children>
-      <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="ALWAYS">
+<BorderPane fx:id="content" prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.resset.miku.app.views.MainWindowController">
+   <left>
+      <AnchorPane fx:id="navbar" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" styleClass="navbar" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane fx:id="navbar" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="80.0" styleClass="navbar" HBox.hgrow="ALWAYS">
-               <children>
-                  <Button fx:id="searchButton" layoutX="20.0" layoutY="80.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#searchOnClick" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
-                     <graphic>
-                        <FontIcon iconLiteral="fas-search" iconSize="20" />
-                     </graphic>
-                  </Button>
-                  <Button fx:id="downloadsButton" layoutX="20.0" layoutY="140.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#downloadsOnClick" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
-                     <graphic>
-                        <FontIcon iconSize="20" iconLiteral="fas-download" />
-                     </graphic>
-                  </Button>
-                  <Button fx:id="preferencesButton" layoutX="20.0" layoutY="550.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#preferencesOnClick" prefHeight="40.0" prefWidth="40.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
-                     <graphic>
-                        <FontIcon iconLiteral="fas-sliders-h" iconSize="20" />
-                     </graphic>
-                  </Button>
-                  <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" onMouseClicked="#sessionsOnClick" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+            <ToggleButton fx:id="searchButton" layoutX="20.0" layoutY="80.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#searchOnClick" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+               <graphic>
+                  <FontIcon iconLiteral="fas-search" iconSize="20" />
+               </graphic>
+            </ToggleButton>
+            <ToggleButton fx:id="downloaderButton" layoutX="20.0" layoutY="140.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#downloadsOnClick" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+               <graphic>
+                  <FontIcon iconLiteral="fas-download" iconSize="20" />
+               </graphic>
+            </ToggleButton>
+            <ToggleButton fx:id="preferencesButton" layoutX="20.0" layoutY="550.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#preferencesOnClick" prefHeight="40.0" prefWidth="40.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+               <graphic>
+                  <FontIcon iconLiteral="fas-sliders-h" iconSize="20" />
+               </graphic>
+            </ToggleButton>
+            <Circle fill="DODGERBLUE" onMouseClicked="#sessionsOnClick" radius="20.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
          </children>
-      </HBox>
-   </children>
-</VBox>
+      </AnchorPane>
+   </left>
+</BorderPane>
