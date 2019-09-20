@@ -5,6 +5,7 @@ import com.resset.miku.app.api.User;
 import com.resset.miku.app.views.ViewUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 
 import java.util.ServiceLoader;
@@ -12,7 +13,7 @@ import java.util.ServiceLoader;
 public class SettingsController {
 
     @FXML
-    private Button generalButton;
+    private ToggleButton generalButton;
     @FXML
     private AnchorPane content;
 
@@ -25,9 +26,7 @@ public class SettingsController {
 
     @FXML
     private void loadGeneralMenu() {
-        ServiceLoader<Session> loader = ServiceLoader.load(Session.class);
-        loader.forEach(session -> System.out.printf("Session: %s\n", session.isLoggedIn()));
-//        ViewUtils.setView(content, getClass().getResource("GeneralSettingsView.fxml"));
+
     }
 
     @FXML

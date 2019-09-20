@@ -39,6 +39,9 @@
     -fx-background-color: transparent;
     -fx-background-radius: 100%;
 }
+ToggleButton > FontIcon {
+    -fx-icon-color: white;
+}
 
 .navbar ToggleButton:hover {
     -fx-background-color: derive(navbar, 25%);
@@ -48,6 +51,7 @@
 }
 .contentNavigation {
     -fx-background-color: secondarycolor;
+    -fx-padding: 20,20,20,20;
 }
 
 .contentNavigation Label {

@@ -8,6 +8,7 @@
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
 
+<?import javafx.scene.control.ToggleButton?>
 <BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.resset.miku.app.views.SettingsController">
    <left>
       <VBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" styleClass="contentNavigation" BorderPane.alignment="CENTER">
@@ -20,39 +21,21 @@
                   <Insets bottom="10.0" />
                </padding>
             </Label>
-            <Button fx:id="generalButton" alignment="BOTTOM_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#loadGeneralMenu" text="General">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-               </VBox.margin>
+            <ToggleButton fx:id="generalButton" alignment="BOTTOM_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#loadGeneralMenu" text="General">
                <graphic>
                   <FontIcon iconLiteral="fa-gear" iconSize="20" />
                </graphic>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </Button>
-            <Button alignment="BOTTOM_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#loadAdvancedMenu" text="Advanced">
+            </ToggleButton>
+            <ToggleButton alignment="BOTTOM_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#loadAdvancedMenu" text="Advanced">
                <graphic>
                   <FontIcon iconLiteral="fas-bolt" iconSize="20" />
                </graphic>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-               </VBox.margin>
-            </Button>
-            <Button alignment="BOTTOM_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#loadAboutMenu" text="About">
+            </ToggleButton>
+            <ToggleButton alignment="BOTTOM_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#loadAboutMenu" text="About">
                <graphic>
                   <FontIcon iconLiteral="fas-question-circle" iconSize="20" />
                </graphic>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-               </VBox.margin>
-            </Button>
+            </ToggleButton>
          </children>
       </VBox>
    </left>

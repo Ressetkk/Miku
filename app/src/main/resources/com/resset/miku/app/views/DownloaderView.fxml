@@ -9,7 +9,8 @@
 
 
 <?import org.kordamp.ikonli.javafx.FontIcon?>
-<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.resset.miku.app.views.DownloaderController">
+<?import javafx.scene.control.ToggleButton?>
+<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.resset.miku.app.views.DownloaderController">
    <children>
       <VBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="250.0" prefWidth="250.0" styleClass="contentNavigation" HBox.hgrow="ALWAYS">
          <children>
@@ -21,39 +22,21 @@
                   <Insets bottom="10.0" />
                </padding>
             </Label>
-            <Button alignment="BOTTOM_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#loadInProgressMenu" text="In progress">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-               </VBox.margin>
+            <ToggleButton alignment="BOTTOM_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#loadInProgressMenu" text="In progress">
                <graphic>
                   <FontIcon iconLiteral="far-clock" iconSize="20" />
                </graphic>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </Button>
-            <Button alignment="BOTTOM_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#loadCompletedMenu" text="Completed">
+            </ToggleButton>
+            <ToggleButton alignment="BOTTOM_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#loadCompletedMenu" text="Completed">
                <graphic>
                   <FontIcon iconLiteral="far-check-circle" iconSize="20" />
                </graphic>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-               </VBox.margin>
-            </Button>
-            <Button alignment="BOTTOM_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#loadPausedMenu" text="Paused">
+            </ToggleButton>
+            <ToggleButton alignment="BOTTOM_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#loadPausedMenu" text="Paused">
                <graphic>
                   <FontIcon iconLiteral="far-pause-circle" iconSize="20" />
                </graphic>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
-               </VBox.margin>
-            </Button>
+            </ToggleButton>
          </children>
       </VBox>
       <AnchorPane fx:id="content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
