@@ -18,9 +18,9 @@
     and probably better color palette than this one...
  */
 .root {
-    primarycolor: #272727;
+    primarycolor: #fff;
     secondarycolor: #2E2E2E;
-    navbar: #222222;
+    navbar: #2A375B;
     /*primarycolor: #082656;*/
     /*secondarycolor: #0c1b35;*/
     /*navbar: #0c1123;*/
@@ -33,6 +33,7 @@
 }
 .navbar {
     -fx-background-color: navbar;
+    -fx-effect: dropshadow(two-pass-box, #757575, 10, 0.5, 0, 0);
 }
 
 .navbar ToggleButton {

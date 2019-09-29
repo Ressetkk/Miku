@@ -2,59 +2,35 @@ package com.resset.miku.app.views;
 
 import com.resset.miku.app.api.Session;
 import com.resset.miku.app.api.User;
-import javafx.application.Platform;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableStringValue;
 import javafx.concurrent.Task;
+import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.ImagePattern;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import org.kordamp.ikonli.javafx.FontIcon;
 
 public class SessionController {
-
-    @FXML
-    private Label fullnameLabel;
-    @FXML
-    private Label emailLabel;
-    @FXML
-    private ImageView picture;
     @FXML
     private VBox content;
     private Session session;
-    private User user;
-
-    private Task<User> getUserTask;
-
     public SessionController(Session session) {
         this.session = session;
-        this.getUserTask = new Task<User>() {
-            @Override
-            protected User call() throws Exception {
-                return session.getUser();
-            }
-        };
-        this.getUserTask.setOnSucceeded(evt -> {
-            user = getUserTask.getValue();
-            fullnameLabel.setText(user.getName());
-            emailLabel.setText(user.getEmail());
-            picture.setImage(new Image(user.getImageURL(), true));
-        });
     }
 
     public void initialize() {
         // this method invokes with loader.load();
         Circle clip = new Circle(50);
-        clip.setCenterX(picture.getFitWidth()/2);
-        clip.setCenterY(picture.getFitHeight()/2);
-        picture.setClip(clip);
+//        clip.setCenterX(picture.getFitWidth()/2);
+//        clip.setCenterY(picture.getFitHeight()/2);
+//        picture.setClip(clip);
         updateView();
 
     }
@@ -66,32 +42,53 @@ public class SessionController {
             content.getChildren().setAll(setLoginView());
         }
         else {
-            content.getChildren().setAll(setLogoutView());
+            content.getChildren().setAll(setProfileView());
         }
     }
     private VBox setLoginView() {
-        fullnameLabel.setText("Log In");
-        emailLabel.setText("");
-        picture.setImage(new Image(getClass().getResource("emptyprofile.png").toString()));
         VBox box = new VBox();
         box.setMaxWidth(250);
+
         TextField usernameField = new TextField();
+        usernameField.setPromptText("Username");
         PasswordField passwordField = new PasswordField();
+        passwordField.setPromptText("Password");
         Button loginButton = new Button("Login");
+        Label status = new Label();
+        status.setTextFill(Color.RED);
         loginButton.setOnMouseClicked(evt -> {
-            // TODO write try/catch for wrong credentials handling
-            boolean isLoginSucceeded = session.login(usernameField.getText(), passwordField.getText());
-            if (isLoginSucceeded) {
+            boolean isLoginSucceeded;
+            try {
+                isLoginSucceeded = session.login(usernameField.getText(), passwordField.getText());
                 updateView();
             }
+            catch (RuntimeException e) {
+                status.setGraphic(new FontIcon("fas-times-circle"));
+                status.setText(e.getMessage());
+            }
         });
-        box.getChildren().addAll(usernameField, passwordField, loginButton);
+        box.setOnKeyReleased(evt -> {
+            boolean isLoginSucceeded;
+            if (evt.getCode() == KeyCode.ENTER) {
+                try {
+                    isLoginSucceeded = session.login(usernameField.getText(), passwordField.getText());
+                    updateView();
+                }
+                catch (RuntimeException e) {
+                    status.setGraphic(new FontIcon("fas-times-circle"));
+                    status.setText(e.getMessage());
+                }
+            }
+        });
+        Label title = new Label(String.format("Login to %s", session.getProviderName()));
+        box.getChildren().addAll(title, usernameField, passwordField, loginButton, status);
         return box;
     }
 
-    private VBox setLogoutView() {
-        new Thread(getUserTask).start();
+    private VBox setProfileView() {
+        // TODO make proper FXML profile View
         VBox box = new VBox();
+        Label userFullName = new Label();
         Button logoutButton = new Button("Logout");
         logoutButton.setOnMouseClicked(evt -> {
             boolean isLogoutSucceeded = session.logout();
@@ -99,7 +96,18 @@ public class SessionController {
                 updateView();
             }
         });
-        box.getChildren().setAll(logoutButton);
+        Task<User> getUserTask = new Task<User>() {
+            @Override
+            protected User call() throws Exception {
+                return session.getUser();
+            }
+        };
+        getUserTask.setOnSucceeded(evt -> {
+            User user = getUserTask.getValue();
+//            userFullName.setText(String.format("Logged in as %s", user.getName()));
+        });
+        box.getChildren().addAll(userFullName, logoutButton);
+        new Thread(getUserTask).start();
         return box;
     }
 }

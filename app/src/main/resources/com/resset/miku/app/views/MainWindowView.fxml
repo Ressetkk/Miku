@@ -3,7 +3,6 @@
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.shape.Circle?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <BorderPane fx:id="content" prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.resset.miku.app.views.MainWindowController">
@@ -20,12 +19,11 @@
                   <FontIcon iconLiteral="fas-download" iconSize="20" />
                </graphic>
             </ToggleButton>
-            <ToggleButton fx:id="preferencesButton" layoutX="20.0" layoutY="550.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#preferencesOnClick" prefHeight="40.0" prefWidth="40.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+            <ToggleButton fx:id="preferencesButton" layoutX="20.0" layoutY="550.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#preferencesOnClick" prefHeight="40.0" prefWidth="40.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
                <graphic>
                   <FontIcon iconLiteral="fas-sliders-h" iconSize="20" />
                </graphic>
             </ToggleButton>
-            <Circle fill="DODGERBLUE" onMouseClicked="#sessionsOnClick" radius="20.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
          </children>
       </AnchorPane>
    </left>

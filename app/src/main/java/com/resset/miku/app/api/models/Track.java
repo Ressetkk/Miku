@@ -5,7 +5,7 @@ import java.util.Map;
 
 public interface Track {
     public String getTitle();
-    public Map<String, String> getAlbum();
+    public Map<String, Object> getAlbum();
     public String getCoverURL();
     public List<Map<String, String>> getArtists();
 }
