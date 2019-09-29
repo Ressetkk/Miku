@@ -27,10 +27,6 @@ public class SessionController {
 
     public void initialize() {
         // this method invokes with loader.load();
-        Circle clip = new Circle(50);
-//        clip.setCenterX(picture.getFitWidth()/2);
-//        clip.setCenterY(picture.getFitHeight()/2);
-//        picture.setClip(clip);
         updateView();
 
     }
@@ -104,7 +100,7 @@ public class SessionController {
         };
         getUserTask.setOnSucceeded(evt -> {
             User user = getUserTask.getValue();
-//            userFullName.setText(String.format("Logged in as %s", user.getName()));
+            userFullName.setText(String.format("Logged in as %s", user.getName()));
         });
         box.getChildren().addAll(userFullName, logoutButton);
         new Thread(getUserTask).start();
