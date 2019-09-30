@@ -4,7 +4,9 @@ import com.resset.miku.app.api.Session;
 import com.resset.miku.app.api.models.SearchResult;
 import com.resset.miku.app.views.components.AlbumTile;
 import com.resset.miku.app.views.components.ArtistTile;
+import com.resset.miku.app.views.components.PlaylistTile;
 import com.resset.miku.app.views.components.Tile;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -35,22 +37,28 @@ public class SearchController {
 
     @FXML
     private void search() {
+        searchContent.getChildren().clear();
         sessions.forEach(session -> {
-            SearchResult result = session.search(searchText.getText(),"ARTISTS,ALBUMS,TRACKS,PLAYLISTS",0 ,25);
-//            HBox box = new HBox();
-//            ScrollPane albumPane = new ScrollPane(box);
-//            albumPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-//            for (Album album : result.getAlbums()) {
-//                AlbumTile tile = new AlbumTile(album);
-//                box.getChildren().add(tile);
-//            }
-            ScrollPane albumPane = generateTiles(result.getAlbums(), AlbumTile.class);
-            ScrollPane artistPane = generateTiles(result.getArtists(), ArtistTile.class);
-            searchContent.getChildren().clear();
-            searchContent.getChildren().setAll(artistPane, albumPane);
+            Task<SearchResult> getResultTask = new Task<SearchResult>() {
+                @Override
+                protected SearchResult call() throws Exception {
+                    return session.search(searchText.getText(),"ARTISTS,ALBUMS,TRACKS,PLAYLISTS",0 ,25);
+                }
+            };
+            getResultTask.setOnSucceeded(evt -> {
+                SearchResult result = getResultTask.getValue();
+                ScrollPane albumPane = generateTiles(result.getAlbums(), AlbumTile.class);
+                ScrollPane artistPane = generateTiles(result.getArtists(), ArtistTile.class);
+                ScrollPane playlistPane = generateTiles(result.getPlaylists(), PlaylistTile.class);
+
+                searchContent.getChildren().addAll(artistPane, albumPane, playlistPane);
+            });
+            new Thread(getResultTask).start();
         });
     }
 
+    // TODO this method is pointless when I want to use it in more places than Search.
+    //  Figure out FXML for generic Search result views.
     private <ItemType> ScrollPane generateTiles(List<? extends ItemType> items, Class<? extends Tile> clazz) {
         HBox box = new HBox();
         ScrollPane pane = new ScrollPane(box);
