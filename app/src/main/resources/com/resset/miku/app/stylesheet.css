@@ -1,15 +1,12 @@
 @font-face {
-    font-family: Roboto-Light;
     src: url('fonts/Roboto-Light.ttf');
 }
 
 @font-face {
-    font-family: Roboto-Regular;
     src: url('fonts/Roboto-Regular.ttf');
 }
 
 @font-face {
-    font-family: Roboto-Bold;
     src: url('fonts/Roboto-Bold.ttf');
 }
 
@@ -18,29 +15,26 @@
     and probably better color palette than this one...
  */
 .root {
-    primarycolor: #fff;
+    primarycolor: #191919;
     secondarycolor: #2E2E2E;
-    navbar: #2A375B;
-    /*primarycolor: #082656;*/
-    /*secondarycolor: #0c1b35;*/
-    /*navbar: #0c1123;*/
+    navbar: #222222;
     -fx-background-color: primarycolor;
+    -fx-font-family: "Roboto";
 }
 
-.root .text{
+.text{
     -fx-font-smoothing-type: gray;
     -fx-text-fill: white;
 }
 .navbar {
     -fx-background-color: navbar;
-    -fx-effect: dropshadow(two-pass-box, #757575, 10, 0.5, 0, 0);
 }
 
 .navbar ToggleButton {
     -fx-background-color: transparent;
     -fx-background-radius: 100%;
 }
-ToggleButton > FontIcon {
+.navbar ToggleButton > FontIcon {
     -fx-icon-color: white;
 }
 
@@ -56,7 +50,7 @@ ToggleButton > FontIcon {
 }
 
 .contentNavigation Label {
-    -fx-font-family: Roboto-Bold;
+    -fx-font-family: "Roboto Bold";
     -fx-text-fill: white;
     -fx-font-size: 24;
 }
@@ -90,8 +84,6 @@ ToggleButton > FontIcon {
     -fx-text-fill: white;
 }
 ScrollPane {
-    -fx-fit-to-height: true;
-    -fx-fit-to-width: true;
     -fx-background-color: transparent;
 }
 ScrollPane > .viewport {
@@ -132,50 +124,28 @@ ScrollBar > .increment-button > .increment-arrow, ScrollBar > .decrement-button 
     -fx-effect: none;
 }
 
-.albumart {
-    -fx-background-color: #3A3A3A;
-    /*-fx-background-insets: 250;*/
-    -fx-effect: dropshadow(gaussian, #000, 20, 0, 0, 0);
+/* Tile styling */
+.tile .title {
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto Bold";
+    -fx-font-size: 14;
+}
+.tile .subtitle {
+    -fx-text-fill: #999999;
 }
 
-.albumart Rectangle {
-    -fx-background-radius: 0px;
-    -fx-arc-width: 0;
-    -fx-arc-height: 0;
-    -fx-stroke: transparent;
-    -fx-fill: #212121;
-    -fx-opacity: 0.7;
-    -fx-blend-mode: multiply;
+.coverview {
+    -fx-effect: dropshadow(gaussian, #050505, 12, 0.5, 0, 0);
 }
-
-.albumart #albumLabel {
-    -fx-font-weight: lighter;
-    -fx-font-size: 20px;
-    -fx-text-fill: #FFF;
-}
-
-.albumart #artistLabel {
-    -fx-font-weight: lighter;
-    -fx-font-size: 16px;
-    -fx-text-fill: #FFF;
-}
-
-.albumart ProgressBar {
-    -fx-background-color: transparent;
-    -fx-background-insets: 0;
-    -fx-padding: 0;
-}
-.albumart .progress-bar > .track {
-    -fx-background-color: transparent;
-    -fx-background-insets: 0;
+/* result container settings */
+.resultContainer .scrollButton {
+    -fx-background-color: rgba(5,5,5,0.7);
     -fx-background-radius: 0;
+    -fx-text-fill: white;
 }
-
-.albumart .progress-bar > .bar {
-    -fx-background-radius: 0 1 1 0;
-    -fx-background-color: #1fc7ff;
-    -fx-background-insets: 2 0 0 0;
- }
+.resultContainer .scrollButton > FontIcon {
+    -fx-icon-color: white;
+}
 
  /*CSS for settings views*/
 .settings {
@@ -195,7 +165,6 @@ ScrollBar > .increment-button > .increment-arrow, ScrollBar > .decrement-button 
     -fx-background-color: grey;
     -fx-background-radius: 5;
     -fx-text-fill: white;
-    -fx-font-family: Roboto-Bold;
 }
 
 .settings Button:hover {

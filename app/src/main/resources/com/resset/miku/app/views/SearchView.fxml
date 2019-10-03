@@ -10,7 +10,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.resset.miku.app.views.SearchController">
    <top>
-      <AnchorPane maxHeight="-Infinity" prefHeight="35.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane maxHeight="-Infinity" prefHeight="35.0" prefWidth="200.0" styleClass="searchBar" BorderPane.alignment="CENTER">
          <children>
             <TextField fx:id="searchText" layoutX="390.0" layoutY="5.0" promptText="Type to search..." AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="5.0" />
             <Button fx:id="searchButton" layoutX="548.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">

@@ -8,6 +8,11 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Miku.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Miku.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Miku.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Miku.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/tidalapi/Miku.tidalapi.iml" filepath="$PROJECT_DIR$/.idea/modules/tidalapi/Miku.tidalapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.resset.miku.Miku.iml" filepath="$PROJECT_DIR$/.idea/modules/com.resset.miku.Miku.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/com.resset.miku.Miku.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/com.resset.miku.Miku.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.resset.miku.Miku.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.resset.miku.Miku.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.resset.miku.Miku.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.resset.miku.Miku.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/tidalapi/com.resset.miku.Miku.tidalapi.iml" filepath="$PROJECT_DIR$/.idea/modules/tidalapi/com.resset.miku.Miku.tidalapi.iml" />
     </modules>
   </component>
 </project>

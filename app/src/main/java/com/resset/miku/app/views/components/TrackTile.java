@@ -1,4 +1,4 @@
-package com.resset.miku.app.views;
+package com.resset.miku.app.views.components;
 
 import com.resset.miku.app.api.models.Track;
 import javafx.fxml.FXML;
@@ -10,7 +10,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class TrackResult extends AnchorPane {
+public class TrackTile extends AnchorPane {
     @FXML
     private Label trackName;
     @FXML
@@ -22,9 +22,9 @@ public class TrackResult extends AnchorPane {
 
     private Track track;
 
-    public TrackResult(Track track) {
+    public TrackTile(Track track) {
         this.track = track;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/search/TrackResult.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/search/TrackTile.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         try {

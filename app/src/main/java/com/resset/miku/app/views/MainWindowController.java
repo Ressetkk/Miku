@@ -2,6 +2,7 @@ package com.resset.miku.app.views;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
@@ -23,6 +24,10 @@ public class MainWindowController {
     private BorderPane content;
 
     private ToggleGroup toggleGroup;
+
+    private static Parent searchView;
+    private static Parent downloaderView;
+    private static Parent settingsView;
     public MainWindowController() {
 
     }
@@ -31,42 +36,27 @@ public class MainWindowController {
     public void initialize() {
         this.toggleGroup = new ToggleGroup();
         this.toggleGroup.getToggles().addAll(searchButton, downloaderButton, preferencesButton);
+        try {
+            searchView = FXMLLoader.load(getClass().getResource("SearchView.fxml"));
+            downloaderView = FXMLLoader.load(getClass().getResource("DownloaderView.fxml"));
+            settingsView = FXMLLoader.load(getClass().getResource("SettingsView.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void searchOnClick() {
-        try {
-            content.setCenter(FXMLLoader.load(getClass().getResource("SearchView.fxml")));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        content.setCenter(searchView);
     }
 
     @FXML
     private void downloadsOnClick() {
-        try {
-            content.setCenter(FXMLLoader.load(getClass().getResource("DownloaderView.fxml")));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        content.setCenter(downloaderView);
     }
 
     @FXML
     private void preferencesOnClick() {
-        try {
-            content.setCenter(FXMLLoader.load(getClass().getResource("SettingsView.fxml")));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    private void sessionsOnClick() {
-        try {
-            content.setCenter(FXMLLoader.load(getClass().getResource("UserPageView.fxml")));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        content.setCenter(settingsView);
     }
 }
