@@ -8,10 +8,7 @@ import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Control;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -44,25 +41,24 @@ public class SearchController {
         sessions.forEach(session -> {
             Platform.runLater(() -> {
                 SearchResult result = session.search(searchText.getText(),"ARTISTS,ALBUMS,TRACKS,PLAYLISTS",0 ,25);
-//                ScrollPane albumPane = generateTiles(result.getAlbums(), AlbumTile.class);
-//                ScrollPane artistPane = generateTiles(result.getArtists(), ArtistTile.class);
-//                ScrollPane playlistPane = generateTiles(result.getPlaylists(), PlaylistTile.class);
-                searchContent.getChildren().addAll(generateTiles(result.getAlbums(), AlbumTile.class),
-                        generateTiles(result.getArtists(), ArtistTile.class),
-                        generateTiles(result.getPlaylists(), PlaylistTile.class));
+                searchContent.getChildren().addAll(generateTiles(result.getAlbums(), AlbumTile.class, "Albums from " + session.getProviderName()),
+                        generateTiles(result.getArtists(), ArtistTile.class, "Artists from " + session.getProviderName()),
+                        generateTiles(result.getPlaylists(), PlaylistTile.class, "Playlists from " + session.getProviderName()));
             });
         });
     }
 
     // TODO this method is pointless when I want to use it in more places than Search.
     //  Figure out FXML for generic Search result views.
-    private <ItemType> Parent generateTiles(List<? extends ItemType> items, Class<? extends Tile> clazz) {
+    private <ItemType> Parent generateTiles(List<? extends ItemType> items, Class<? extends Tile> clazz, String name) {
         ResultScrollPane controller = new ResultScrollPane();
         Parent parent;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("components/ResultScrollPane.fxml"));
             loader.setController(controller);
             parent = loader.load();
+            if (items.isEmpty())
+                return new AnchorPane(new Label("No results"));
             for (ItemType item : items) {
                 try {
                     Tile tile = clazz.getDeclaredConstructor().newInstance();
@@ -73,6 +69,7 @@ public class SearchController {
                     e.printStackTrace();
                 }
             }
+            controller.setLabel(name);
             return parent;
         } catch (IOException e) {
             e.printStackTrace();
