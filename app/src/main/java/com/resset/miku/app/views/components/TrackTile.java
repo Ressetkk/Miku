@@ -39,7 +39,7 @@ public class TrackTile extends AnchorPane {
             // TODO add proper Threading
             trackName.setText(track.getTitle());
             albumName.setText(track.getAlbum().get("title").toString());
-            albumCover.setImage(new Image(track.getCoverURL()));
+            albumCover.setImage(new Image(track.getCoverURL(), true));
 //            artistName.setText(track.getArtists().get("name").toString());
         }
         catch (NullPointerException e) {

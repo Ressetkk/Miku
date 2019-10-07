@@ -13,14 +13,19 @@
 
 <VBox styleClass="resultContainer" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="resultName" styleClass="title" text="Label">
-         <font>
-            <Font size="14.0" />
-         </font>
+      <AnchorPane>
          <VBox.margin>
-            <Insets bottom="5.0" left="20.0" top="20.0" />
+            <Insets bottom="5.0" left="20.0" right="20.0" top="20.0" />
          </VBox.margin>
-      </Label>
+         <children>
+            <Label fx:id="resultName" styleClass="title" text="Label" AnchorPane.leftAnchor="0.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label styleClass="title" text="Show All" AnchorPane.rightAnchor="0.0" />
+         </children>
+      </AnchorPane>
       <AnchorPane onMouseEntered="#showButtons" onMouseExited="#hideButtons">
          <children>
             <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

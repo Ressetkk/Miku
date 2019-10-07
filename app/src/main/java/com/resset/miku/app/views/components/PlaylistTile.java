@@ -9,7 +9,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 
-public class PlaylistTile extends Tile<Playlist> {
+public final class PlaylistTile extends Tile<Playlist> {
     @FXML
     private Label titleLabel;
     @FXML

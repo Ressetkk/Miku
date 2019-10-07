@@ -7,14 +7,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.effect.BlurType;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 import java.io.IOException;
 
-public class ArtistTile extends Tile<Artist> {
+public final class ArtistTile extends Tile<Artist> {
     @FXML
     private Label titleLabel;
     @FXML
@@ -25,6 +28,7 @@ public class ArtistTile extends Tile<Artist> {
         Circle clip = new Circle(this.coverView.getFitWidth()/2);
         clip.setCenterX(this.coverView.getFitWidth()/2);
         clip.setCenterY(this.coverView.getFitHeight()/2);
+//        this.coverView.setEffect(new DropShadow(BlurType.THREE_PASS_BOX, Color.rgb(5,5,5), 12.0, 0.5,0,0));
         this.coverView.setClip(clip);
         Image image = new Image(this.getItem().getPicture(), true);
 

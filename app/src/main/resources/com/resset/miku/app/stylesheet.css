@@ -69,19 +69,20 @@
 }
 
 .searchBar > TextField, .searchBar > Button {
-    -fx-background-color: transparent;
-    -fx-background-radius: 0;
-    -fx-border-width: 0 0 1.5 0;
-    -fx-border-color: #fff;
+    -fx-background-color: derive(primaryColor, 25%);
+    -fx-border-color: transparent;
     -fx-text-fill: white;
 }
-
-.searchBar TextField:focused {
-    -fx-border-color: -fx-focus-color;
+.searchBar > TextField {
+    -fx-background-radius: 3 0 0 3;
 }
 
-.searchBar Button > Glyph {
-    -fx-text-fill: white;
+.searchBar > Button {
+    -fx-background-radius: 0 3 3 0;
+}
+
+.searchBar Button > FontIcon {
+    -fx-icon-color: white;
 }
 ScrollPane {
     -fx-background-color: transparent;
@@ -138,7 +139,7 @@ ScrollBar > .increment-button > .increment-arrow, ScrollBar > .decrement-button 
     -fx-effect: dropshadow(gaussian, #050505, 12, 0.5, 0, 0);
 }
 /* result container settings */
-.resultContainer > .title {
+.resultContainer > AnchorPane > .title {
     -fx-text-fill: gray;
     -fx-font-family: "Roboto Bold";
     -fx-font-size: 14;
